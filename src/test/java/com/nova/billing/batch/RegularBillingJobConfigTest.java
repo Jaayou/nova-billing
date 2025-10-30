@@ -54,7 +54,7 @@ class RegularBillingJobConfigTest {
 
         StepExecution stepExecution = jobExecution.getStepExecutions().iterator().next();
         assertEquals(5, stepExecution.getReadCount(), "Reader가 5건을 읽어야 한다.");
-        assertEquals(5, stepExecution.getProcessCount(), "Processor가 5건을 처리해야 한다.");
+        assertEquals(0, stepExecution.getFilterCount(), "Processor가 필터링한 건수는 0건이어야 한다.");
         assertEquals(5, stepExecution.getWriteCount(), "Writer가 5건을 써야 한다.");
     }
 }
