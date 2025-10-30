@@ -1,0 +1,28 @@
+### [1] 핫빌 API 테스트 - 무선 (WL)
+# (contractId: "CONTRCT_WL_001" -> WirelessBillingStrategy -> 80,000원)
+POST http://localhost:8080/api/v1/hotbill
+Content-Type: application/json
+
+{
+    "contractId": "SVC_WL_001"
+}
+
+
+### [2] 핫빌 API 테스트 - 유선 (WD)
+# (contractId: "CONTRCT_WD_002" -> WiredBillingStrategy -> 45,000원)
+POST http://localhost:8080/api/v1/hotbill
+Content-Type: application/json
+
+{
+    "contractId": "SVC_WD_002"
+}
+
+
+### [3] 핫빌 API 테스트 - 실패 (지원하지 않는 ID)
+# (contractId: "UNKNOWN_999" -> StrategyFactory -> IllegalArgumentException -> 500 Internal Server Error)
+POST http://localhost:8080/api/v1/hotbill
+Content-Type: application/json
+
+{
+    "contractId": "UNKNOWN_999"
+}
